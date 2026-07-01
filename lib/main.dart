@@ -5,7 +5,7 @@ import 'package:cementco/welcomePage.dart';
 void main(){
   runApp(
     MaterialApp(
-      home: ,
+      home: Welcomepage() ,
     )
   );
 }
