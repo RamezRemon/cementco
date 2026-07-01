@@ -25,15 +25,19 @@ class Welcomepage extends StatelessWidget {
               gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: [Colors.black,Colors.transparent]
+                  colors: [Colors.transparent,Colors.black]
               ),
             ),
             child: Column(
               children: [
                 SizedBox(
-                  height: 500,
+                  height: 570,
                 ),
                 Text("تابع شحنتك لحظة بلحظة" ,style: GoogleFonts.abrilFatface(fontSize: 50,fontWeight: FontWeight.bold,color: Colors.white),),
+                SizedBox(
+                  height: 10,
+                ),
+                Text("حدد الكمية والمكان، واضغط زر واحد ليصل طلبك مباشرة للمصنع" ,style: GoogleFonts.abrilFatface(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white60),),
                 SizedBox(
                   height: 10,
                 ),
@@ -44,12 +48,12 @@ class Welcomepage extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.white,
                       backgroundColor: Colors.orangeAccent,
-                      fixedSize: Size( MediaQuery.of(context).size.width,100),
+                      fixedSize: Size( MediaQuery.of(context).size.width,70),
                       shape: RoundedRectangleBorder(
-                        borderRadius:BorderRadius.zero ,
+                        borderRadius:BorderRadius.circular(20) ,
                       )
                   ),
-                  child: Text("Calculator",style: GoogleFonts.lilitaOne(fontSize: 30,fontWeight: FontWeight.bold),),
+                  child: Text("ابدأ الان",style: GoogleFonts.lilitaOne(fontSize: 30,fontWeight: FontWeight.bold),),
                 ),
               ],
             ),
