@@ -1,3 +1,4 @@
+import 'package:cementco/LoginPage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -43,7 +44,7 @@ class Welcomepage extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: (){
-                    //Navigator.push(context, MaterialPageRoute(builder: (context)=>Result(bmi: bmi,)));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Loginpage()));
                   },
                   style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.white,
