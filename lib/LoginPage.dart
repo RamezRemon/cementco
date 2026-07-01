@@ -10,7 +10,7 @@ class Loginpage extends StatelessWidget {
       appBar: AppBar(),
         body: Column(
           children: [
-            Text("Enter FullName",style:GoogleFonts.abyssinicaSil(fontSize: 20,color: Colors.white60)),
+            Text("Enter FullName",style:GoogleFonts.abyssinicaSil(fontSize: 20,color: Colors.black)),
             SizedBox(
               height: 10,
             ),
@@ -18,7 +18,7 @@ class Loginpage extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            Text("Enter PhoneNumber",style:GoogleFonts.abyssinicaSil(fontSize: 20,color: Colors.white60)),
+            Text("Enter PhoneNumber",style:GoogleFonts.abyssinicaSil(fontSize: 20,color: Colors.black)),
             SizedBox(
               height: 10,
             ),
@@ -26,15 +26,20 @@ class Loginpage extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            Text("Enter Email",style:GoogleFonts.abyssinicaSil(fontSize: 20,color: Colors.white60)),
-            SizedBox(
-              height: 10,
-            ),
-            Text("Enter Password",style:GoogleFonts.abyssinicaSil(fontSize: 20,color: Colors.white60)),
+            Text("Enter Email",style:GoogleFonts.abyssinicaSil(fontSize: 20,color: Colors.black)),
             SizedBox(
               height: 10,
             ),
             TextField(),
+            SizedBox(
+              height: 10,
+            ),
+            Text("Enter Password",style:GoogleFonts.abyssinicaSil(fontSize: 20,color: Colors.black)),
+            SizedBox(
+              height: 10,
+            ),
+            TextField(),
+
 
           ],
         ),
