@@ -1,135 +1,211 @@
 import 'package:flutter/material.dart';
 
-/// Flutter code sample for [NavigationBar].
-
-void main() => runApp(Orderspage());
-
-class Orderspage extends StatelessWidget {
+class Orderspage extends StatefulWidget {
   const Orderspage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(home: Orderspage());
-  }
+  State<Orderspage> createState() => _OrderspageState();
 }
 
-class NavigationExample extends StatefulWidget {
-  const NavigationExample({super.key});
-
+class _OrderspageState extends State<Orderspage> {
+  double productW=500;
+  double productC=500;
+  String factoryN="CEM";
+  String factoryL="القاهرة";
+  String customerL="الاسكندرية";
+  double estimatedD=150;
+  late double estimatedT= estimatedD/estimatedS;
+  double estimatedS=80;
   @override
-  State<NavigationExample> createState() => _NavigationExampleState();
-}
 
-class _NavigationExampleState extends State<NavigationExample> {
-  int currentPageIndex = 0;
-
-  @override
   Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-    return Scaffold(
-      bottomNavigationBar: NavigationBar(
-        onDestinationSelected: (int index) {
-          setState(() {
-            currentPageIndex = index;
-          });
-        },
-        indicatorColor: Colors.amber,
-        selectedIndex: currentPageIndex,
-        destinations: const <Widget>[
-          NavigationDestination(
-            selectedIcon: Icon(Icons.home),
-            icon: Icon(Icons.home_outlined),
-            label: 'Home',
-          ),
-          NavigationDestination(
-            icon: Badge(child: Icon(Icons.notifications_sharp)),
-            label: 'Notifications',
-          ),
-          NavigationDestination(
-            icon: Badge(label: Text('2'), child: Icon(Icons.messenger_sharp)),
-            label: 'Messages',
-          ),
-        ],
-      ),
-      body: <Widget>[
-        /// Home page
-        Card(
-          shadowColor: Colors.transparent,
-          margin: EdgeInsetsGeometry.all(8.0),
-          child: SizedBox.expand(
-            child: Center(
-              child: Text('Home page', style: theme.textTheme.titleLarge),
-            ),
-          ),
-        ),
+    return DefaultTabController(
+      length: 4, // Specify the exact number of tabs
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('طلباتي',style: TextStyle(fontSize: 50),textDirection: TextDirection.rtl,),
+          // 2. Place the TabBar inside the bottom property of AppBar
+          bottom: TabBar(
+            tabs: [
+              Tab(text: 'تم الالغاء'),
+              Tab(text: 'تم التوصيل'),
+              Tab(text: 'في الطريق'),
+              Tab(text: 'الكل'),
 
-        /// Notifications page
-        const Padding(
-          padding:  EdgeInsets.all(8.0),
-          child: Column(
-            children: <Widget>[
-              Card(
-                child: ListTile(
-                  leading: Icon(Icons.notifications_sharp),
-                  title: Text('Notification 1'),
-                  subtitle: Text('This is a notification'),
-                ),
-              ),
-              Card(
-                child: ListTile(
-                  leading: Icon(Icons.notifications_sharp),
-                  title: Text('Notification 2'),
-                  subtitle: Text('This is a notification'),
-                ),
-              ),
             ],
           ),
         ),
-
-        /// Messages page
-        ListView.builder(
-          reverse: true,
-          itemCount: 2,
-          itemBuilder: (BuildContext context, int index) {
-            if (index == 0) {
-              return Align(
-                alignment: Alignment.centerRight,
-                child: Container(
-                  margin: EdgeInsetsGeometry.all(8.0),
-                  padding:  EdgeInsets.all(8.0),
-                  decoration: BoxDecoration(
-                    color: theme.colorScheme.primary,
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                  child: Text(
-                    'Hello',
-                    style: theme.textTheme.bodyLarge!.copyWith(
-                      color: theme.colorScheme.onPrimary,
+        // 3. Place the TabBarView inside the Scaffold body
+        body: TabBarView(
+          children: [
+            Center(
+              child: Text(
+                'This is the content for Tab 1',
+                style: TextStyle(fontSize: 22),
+              ),
+            ),
+            Center(
+              child: Text(
+                'This is the content for Tab 2',
+                style: TextStyle(fontSize: 22),
+              ),
+            ),
+            Center(
+              child: Text(
+                'This is the content for Tab 3',
+                style: TextStyle(fontSize: 22),
+              ),
+            ),
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.all(10),
+                child: ListView(
+                  children: [
+                    SizedBox(
+                      height: 20,
                     ),
-                  ),
-                ),
-              );
-            }
-            return Align(
-              alignment: Alignment.centerLeft,
-              child: Container(
-                margin: EdgeInsetsGeometry.all(8.0),
-                padding: EdgeInsets.all(8.0),
-                decoration: BoxDecoration(
-                  color: theme.colorScheme.primary,
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                child: Text(
-                  'Hi!',
-                  style: theme.textTheme.bodyLarge!.copyWith(
-                    color: theme.colorScheme.onPrimary,
-                  ),
+                    Container(
+                        width:double.infinity,
+                        height: 250,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.grey,
+                        ),
+                        child: Column(
+                          children: [
+                            Text("اسمنت",style: TextStyle(fontSize: 50,fontWeight: FontWeight.bold),textDirection: TextDirection.rtl,),
+                            Text(" طن$productWالوزن: ",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),textDirection: TextDirection.rtl,),
+                            Row(
+                              children: [
+                                Icon(Icons.circle,color: Colors.orangeAccent,),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text("($factoryL) $factoryNمن مصنع:",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+
+                              ],
+                            ),
+                            Text("المسافة المتوقعة : ",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                            Text(" ساعات$estimatedTمدة التوصيل: ",style: TextStyle(fontSize: 20),textDirection: TextDirection.rtl,),
+
+                            Row(
+                              children: [
+                                Icon(Icons.circle,color: Colors.orangeAccent,),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text("$customerLالى:",style: TextStyle(fontSize: 20,),textDirection: TextDirection.rtl,),
+                                SizedBox(
+                                  width: 40,
+                                ),
+                                Text("$customerLالسعر:",style: TextStyle(fontSize: 20,),textDirection: TextDirection.rtl,),
+
+
+                              ],
+                            )
+
+                          ],
+                        )
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                        width:double.infinity,
+                        height: 250,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.grey,
+                        ),
+                        child: Column(
+                          children: [
+                            Text("اسمنت",style: TextStyle(fontSize: 50,fontWeight: FontWeight.bold),textDirection: TextDirection.rtl,),
+                            Text(" طن$productWالوزن: ",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),textDirection: TextDirection.rtl,),
+                            Row(
+                              children: [
+                                Icon(Icons.circle,color: Colors.orangeAccent,),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text("($factoryL) $factoryNمن مصنع:",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+
+                              ],
+                            ),
+                            Text("المسافة المتوقعة : ",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                            Text(" ساعات$estimatedTمدة التوصيل: ",style: TextStyle(fontSize: 20),textDirection: TextDirection.rtl,),
+
+                            Row(
+                              children: [
+                                Icon(Icons.circle,color: Colors.orangeAccent,),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text("$customerLالى:",style: TextStyle(fontSize: 20,),textDirection: TextDirection.rtl,),
+                                SizedBox(
+                                  width: 40,
+                                ),
+                                Text("$customerLالسعر:",style: TextStyle(fontSize: 20,),textDirection: TextDirection.rtl,),
+
+
+                              ],
+                            )
+
+                          ],
+                        )
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                        width:double.infinity,
+                        height: 250,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.grey,
+                        ),
+                        child: Column(
+                          children: [
+                            Text("اسمنت",style: TextStyle(fontSize: 50,fontWeight: FontWeight.bold),textDirection: TextDirection.rtl,),
+                            Text(" طن$productWالوزن: ",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),textDirection: TextDirection.rtl,),
+                            Row(
+                              children: [
+                                Icon(Icons.circle,color: Colors.orangeAccent,),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text("($factoryL) $factoryNمن مصنع:",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+
+                              ],
+                            ),
+                            Text("المسافة المتوقعة : ",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                            Text(" ساعات$estimatedTمدة التوصيل: ",style: TextStyle(fontSize: 20),textDirection: TextDirection.rtl,),
+
+                            Row(
+                              children: [
+                                Icon(Icons.circle,color: Colors.orangeAccent,),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text("$customerLالى:",style: TextStyle(fontSize: 20,),textDirection: TextDirection.rtl,),
+                                SizedBox(
+                                  width: 40,
+                                ),
+                                Text("$customerLالسعر:",style: TextStyle(fontSize: 20,),textDirection: TextDirection.rtl,),
+
+
+                              ],
+                            )
+
+                          ],
+                        )
+                    ),
+                  ],
                 ),
               ),
-            );
-          },
+            ),
+          ],
         ),
-      ][currentPageIndex],
+      ),
     );
   }
 }
